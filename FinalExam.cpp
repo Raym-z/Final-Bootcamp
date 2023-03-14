@@ -255,7 +255,7 @@ int validateInsert(double temperature, char *name)
 void find_similar_temperature(Node *root, double temperature)
 {
 
-    double min_diff = abs(root->tempe - temperature);
+    double min_diff = fabs(root->tempe - temperature);
     double similar_temp = root->tempe;
     char planetname_temp[100];
     strcpy(planetname_temp, root->planetName);
@@ -294,7 +294,7 @@ void find_similar_temperature(Node *root, double temperature)
     printf("Planet with smallest Temperature difference : %s - %.2lf\n", planetname_temp, similar_temp);
 }
 
-void inOrderRange(Node *root, int startNode, int endNode, int &index)
+void inOrderRange(Node *root, int startNode, int endNode, int index)
 {
     if (root == NULL)
     {
@@ -310,12 +310,6 @@ void inOrderRange(Node *root, int startNode, int endNode, int &index)
     index++;
 
     inOrderRange(root->right, startNode, endNode, index);
-}
-
-void inOrderRangeStart(Node *root, int startNode, int endNode)
-{
-    int index = 1; // initialize index to 1
-    inOrderRange(root, startNode, endNode, index);
 }
 
 int validateFromTo(int start, int to)
@@ -446,7 +440,7 @@ int main()
             }
 
             printf("\n| %s | %-13s | %-20s |\n", "NO.", "Temperature", "Planet Name");
-            inOrderRangeStart(baseRoot, start, end);
+            inOrderRange(baseRoot, start, end, 1);
             printf("\nPress Enter to Continue\n");
             getchar();
             break;
