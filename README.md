@@ -1,7 +1,7 @@
 NAMA : RAYMOND WILLY TANUMIHARDJA
 DISCORD : RAYM#0074
 
-Welcome to the Final-Bootcamp wiki!
+
 
 1. 
 A.
